@@ -1,0 +1,35 @@
+> library(readr)
+> BuyerRatio <- read_csv("BuyerRatio.csv")
+Parsed with column specification:
+cols(
+  `Observed Values` = col_character(),
+  East = col_double(),
+  West = col_double(),
+  North = col_double(),
+  South = col_double()
+)
+> View(BuyerRatio)
+> BuyerRatio$`Observed Values`
+[1] "Males"   "Females"
+> #assigning values to respective genders
+> male<-c(50,142,131,70)
+> female<-c(435,1523,1356,750)
+
+>#Hypothesis testing
+># Ho:Ratio of Male & Female buyers are same
+># Ha: Ratio of Male & Female buyers are different
+
+> t.test(male,female,alternative = "two.sided")
+
+	Welch Two Sample t-test
+
+data:  male and female
+t = -3.5835, df = 3.047, p-value = 0.03627
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -1725.7308  -109.7692
+sample estimates:
+mean of x mean of y 
+    98.25   1016.00 
+    
+># Since p-value < 0.05, we will reject the Ho(NULL) hypthosis.    
