@@ -11,25 +11,16 @@ cols(
 > View(BuyerRatio)
 > BuyerRatio$`Observed Values`
 [1] "Males"   "Females"
-> #assigning values to respective genders
-> male<-c(50,142,131,70)
-> female<-c(435,1523,1356,750)
 
 >#Hypothesis testing
 ># Ho:Ratio of Male & Female buyers are same
 ># Ha: Ratio of Male & Female buyers are different
 
-> t.test(male,female,alternative = "two.sided")
+> > chisq.test(BuyerRatio[,-1])
 
-	Welch Two Sample t-test
+	Pearson's Chi-squared test
 
-data:  male and female
-t = -3.5835, df = 3.047, p-value = 0.03627
-alternative hypothesis: true difference in means is not equal to 0
-95 percent confidence interval:
- -1725.7308  -109.7692
-sample estimates:
-mean of x mean of y 
-    98.25   1016.00 
+data:  BuyerRatio[, -1]
+X-squared = 1.5959, df = 3, p-value = 0.6603
     
-># Since p-value < 0.05, we will reject the Ho(NULL) hypthosis.    
+># Since p-value > 0.05, we will  not reject the Ho(NULL) hypthosis.    
